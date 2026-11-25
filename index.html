@@ -78,7 +78,8 @@ h1{font-family:"Aref Ruqaa","IBM Plex Sans Arabic",serif;font-size:32px;font-wei
     const l=el('span');l.append(num(lbp(d.lbp)),' ل.ل.');box.append(row('بالليرة',l,'b'));
     box.append(row('طريقة الدفع',el('span',null,PAY[d.pay]||'')));
     box.append(el('div','hr'),el('div','c b','شكراً لزيارتكم'));
-    document.title='إيصال '+String(d.n||'');
+    document.title=' ';
+    try{history.replaceState(null,'',location.pathname)}catch(e){}
     const fit=()=>{};
     const go=()=>{fit();window.print()};
     document.getElementById('again').addEventListener('click',go);
