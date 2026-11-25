@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=IBM+Plex+Sans+Arabic:wght@500;600;700&display=swap" rel="stylesheet">
-<style id="pagesize">@page{size:80mm 200mm;margin:0}</style>
+<style id="pagesize">@page{margin:0}</style>
 <style>
 /* Al Mawed till receipt for an 80mm thermal printer (72mm printable). Black only. */
 html,body{margin:0;background:#fff;color:#000}
@@ -35,7 +35,7 @@ h1{font-family:"Aref Ruqaa","IBM Plex Sans Arabic",serif;font-size:32px;font-wei
   .bar button.alt{background:#fff;color:#1d5a3f}
   .msg{text-align:center;padding:40px 16px;font:16px "IBM Plex Sans Arabic",Arial,sans-serif}
 }
-@media print{body{background:#fff}.bar,.msg{display:none}}
+@media print{html,body{background:#fff;margin:0;padding:0}.r{margin:0 auto;padding-top:0}.bar,.msg{display:none}}
 </style>
 </head>
 <body>
@@ -79,7 +79,7 @@ h1{font-family:"Aref Ruqaa","IBM Plex Sans Arabic",serif;font-size:32px;font-wei
     box.append(row('طريقة الدفع',el('span',null,PAY[d.pay]||'')));
     box.append(el('div','hr'),el('div','c b','شكراً لزيارتكم'));
     document.title='إيصال '+String(d.n||'');
-    const fit=()=>{const mm=Math.ceil(box.getBoundingClientRect().height*25.4/96)+6;document.getElementById('pagesize').textContent='@page{size:80mm '+Math.max(60,mm)+'mm;margin:0}'};
+    const fit=()=>{};
     const go=()=>{fit();window.print()};
     document.getElementById('again').addEventListener('click',go);
     window.addEventListener('afterprint',()=>{setTimeout(()=>window.close(),300)});
