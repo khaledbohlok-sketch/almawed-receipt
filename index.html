@@ -61,7 +61,7 @@ h1{font-family:"Aref Ruqaa","IBM Plex Sans Arabic",serif;font-size:32px;font-wei
   if(!d||!Array.isArray(d.i)){
     box.replaceWith(el('div','msg','لا يوجد إيصال لطباعته. افتح هذه الصفحة من زر «طباعة الإيصال» في نظام الموعد.'));
   }else{
-    box.append(el('h1',null,'الموعد'),el('div','tag','تبغ · معسّل · أراكيل'),el('div','hr'));
+    box.append(el('div','tag','تبغ · معسّل · أراكيل'),el('div','hr'));
     const when=new Date(d.t);
     const top=el('div','row small');const no=el('span');no.append('إيصال رقم ',num(String(d.n||'')));
     top.append(no,el('span',null,isNaN(when)?'':when.toLocaleString(AR,{dateStyle:'short',timeStyle:'short'})));box.append(top);
@@ -77,7 +77,7 @@ h1{font-family:"Aref Ruqaa","IBM Plex Sans Arabic",serif;font-size:32px;font-wei
     box.append(row('المجموع',num(usd(d.usd)),'tot'));
     const l=el('span');l.append(num(lbp(d.lbp)),' ل.ل.');box.append(row('بالليرة',l,'b'));
     box.append(row('طريقة الدفع',el('span',null,PAY[d.pay]||'')));
-    box.append(el('div','hr'),el('div','c b','شكراً لزيارتكم'),el('div','c small','ممنوع البيع لمن هم دون 18 سنة'));
+    box.append(el('div','hr'),el('div','c b','شكراً لزيارتكم'));
     document.title='إيصال '+String(d.n||'');
     const fit=()=>{const mm=Math.ceil(box.getBoundingClientRect().height*25.4/96)+6;document.getElementById('pagesize').textContent='@page{size:80mm '+Math.max(60,mm)+'mm;margin:0}'};
     const go=()=>{fit();window.print()};
